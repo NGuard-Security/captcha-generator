@@ -56,10 +56,10 @@ describe("examples/writeToFiles.js", function () {
 		.readdirSync(path.join(__dirname, "..", "examples"))
 		.filter(f => ["png", "jpeg"].includes(f.split(".")[1]));
 	it("should create a new PNG file", function () {
-		assert.strictEqual(Boolean(files.filter(f => f.endsWith(".png")).length), true);
+		assert.strictEqual(!!files.filter(f => f.endsWith(".png")), true);
 	});
 	it("should create a new JPEG file", function () {
-		assert.strictEqual(Boolean(files.filter(f => f.endsWith(".jpeg")).length), true);
+		assert.strictEqual(!!files.filter(f => f.endsWith(".jpeg")), true);
 	});
 	for (const file of files) {
 		fs.unlinkSync(path.join(__dirname, "..", "examples", file));

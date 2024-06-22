@@ -6,5 +6,4 @@ examples/*.jpeg
 node_modules
 src
 .gitattributes
-CODE_OF_CONDUCT.md
 tsconfig.json

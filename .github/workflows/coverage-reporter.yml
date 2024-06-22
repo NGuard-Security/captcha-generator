@@ -7,16 +7,20 @@ jobs:
     runs-on: ubuntu-latest
     name: coverage-reporter
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 2
-      - uses: actions/setup-node@v1
+      - uses: pnpm/action-setup@v4
         with:
-          node-version: 12
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
       - name: Install and build libraries
         run: |
-            npm i
-            npm run build
+            pnpm install --frozen-lockfile
+            pnpm build
       - name: Run coverage-reporter
         run: |
             export CODECOV_TOKEN=${{ secrets.CODECOV_TOKEN }}
